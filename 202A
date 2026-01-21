@@ -1,0 +1,30 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool isPalindrome(const string &t) {
+    int l = 0, r = t.size() - 1;
+    while (l < r) {
+        if (t[l] != t[r]) return false;
+        l++;
+        r--;
+    }
+    return true;
+}
+
+int main() {
+    string s;
+    cin >> s;
+    int n = s.size();
+    string ans = "";
+
+    for (int mask = 1; mask < (1 << n); mask++) {
+        string sub = "";
+        for (int i = 0; i < n; i++) {
+            if (mask & (1 << i)) sub += s[i];
+        }
+        if (isPalindrome(sub) && sub > ans) ans = sub;
+    }
+
+    cout << ans;
+    return 0;
+}
