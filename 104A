@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+    int needed = n - 10, ways = 0;
+    if (needed >= 1 && needed <= 9 && needed != 10) ways = 4;
+    else if (needed == 10) ways = 15;
+    else if (needed == 11) ways = 4;
+    cout << ways << endl;
+}
