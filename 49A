@@ -1,0 +1,26 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    string s;
+    getline(cin, s);
+
+    char lastLetter = 0;
+
+    for (int i = s.size() - 1; i >= 0; i--) {
+        if (isalpha(s[i])) {
+            lastLetter = tolower(s[i]);
+            break;
+        }
+    }
+
+    string vowels = "aeiouy";
+
+    if (vowels.find(lastLetter) != string::npos)
+        cout << "YES\n";
+    else
+        cout << "NO\n";
+
+    return 0;
+}
