@@ -1,0 +1,27 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string text;
+    cin >> text;
+
+    int upperCnt = 0, lowerCnt = 0;
+
+    for (char c : text) {
+        if (isupper(c))
+            upperCnt++;
+        else
+            lowerCnt++;
+    }
+
+    if (upperCnt > lowerCnt) {
+        for (char &c : text)
+            c = toupper(c);
+    } else {
+        for (char &c : text)
+            c = tolower(c);
+    }
+
+    cout << text;
+    return 0;
+}
