@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string s1, s2, s3;
+    cin >> s1 >> s2 >> s3;
+
+    unordered_map<char, int> score;
+    score['A'] = score['B'] = score['C'] = 0;
+
+    string arr[3] = {s1, s2, s3};
+
+    for (int i = 0; i < 3; i++) {
+        char left = arr[i][0];
+        char right = arr[i][2];
+        char sign = arr[i][1];
+
+        if (sign == '>') {
+            score[left]++;
+        } else {
+            score[right]++;
+        }
+    }
+
+    vector<char> coins = {'A', 'B', 'C'};
+    sort(coins.begin(), coins.end(), [&](char x, char y) {
+        return score[x] < score[y];
+    });
+
+    if (score[coins[0]] == score[coins[1]] ||
+        score[coins[1]] == score[coins[2]]) {
+        cout << "Impossible";
+        return 0;
+    }
+
+    for (char c : coins) cout << c;
+    return 0;
+}
