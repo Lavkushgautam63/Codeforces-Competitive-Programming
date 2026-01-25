@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    for (int k = 1; k <= 500; k++) {
+        if (k * (k + 1) / 2 == n) {
+            cout << "YES";
+            return 0;
+        }
+    }
+
+    cout << "NO";
+    return 0;
+}
