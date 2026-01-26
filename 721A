@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    string s;
+    cin >> s;
+
+    vector<int> groups;
+    int count = 0;
+
+    for (char c : s) {
+        if (c == 'B') {
+            count++;
+        } else {
+            if (count > 0) {
+                groups.push_back(count);
+                count = 0;
+            }
+        }
+    }
+
+    if (count > 0) groups.push_back(count);
+
+    cout << groups.size() << "\n";
+    for (int x : groups) cout << x << " ";
+    
+    return 0;
+}
