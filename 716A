@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    long long c;
+    cin >> n >> c;
+
+    vector<long long> t(n);
+    for (int i = 0; i < n; i++) cin >> t[i];
+
+    int words = 1;
+
+    for (int i = 1; i < n; i++) {
+        if (t[i] - t[i - 1] > c) words = 1;
+        else words++;
+    }
+
+    cout << words;
+    return 0;
+}
