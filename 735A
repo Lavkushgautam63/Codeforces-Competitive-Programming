@@ -1,0 +1,26 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n, k;
+    cin >> n >> k;
+
+    string s;
+    cin >> s;
+
+    int g = s.find('G');
+    int t = s.find('T');
+
+    int step = (g < t) ? k : -k;
+
+    for (int i = g; i >= 0 && i < n; i += step) {
+        if (s[i] == '#') break;
+        if (i == t) {
+            cout << "YES";
+            return 0;
+        }
+    }
+
+    cout << "NO";
+    return 0;
+}
