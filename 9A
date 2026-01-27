@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int Y, W;
+    cin >> Y >> W;
+
+    int need = max(Y, W);
+    int win = 6 - need + 1;
+
+    if (win <= 0) {
+        cout << "0/1";
+        return 0;
+    }
+
+    int g = __gcd(win, 6);
+    cout << win / g << "/" << 6 / g;
+    return 0;
+}
