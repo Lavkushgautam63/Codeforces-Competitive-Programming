@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    while (n--) {
+        string name;
+        int before, after;
+        cin >> name >> before >> after;
+
+        if (before >= 2400 && after > before) {
+            cout << "YES\n";
+            return 0;
+        }
+    }
+
+    cout << "NO\n";
+    return 0;
+}
