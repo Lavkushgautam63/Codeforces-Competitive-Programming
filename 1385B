@@ -1,0 +1,33 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+
+        vector<int> a(2 * n);
+        for (int i = 0; i < 2 * n; i++) {
+            cin >> a[i];
+        }
+
+        vector<bool> visited(n + 1, false);
+        vector<int> p;
+
+        for (int i = 0; i < 2 * n; i++) {
+            if (!visited[a[i]]) {
+                visited[a[i]] = true;
+                p.push_back(a[i]);
+            }
+        }
+
+        for (int x : p) {
+            cout << x << " ";
+        }
+        cout << "\n";
+    }
+    return 0;
+}
