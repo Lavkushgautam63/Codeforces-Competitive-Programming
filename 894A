@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string s;
+    cin >> s;
+    int n = s.size();
+    int ans = 0;
+    for (int i = 0; i < n; i++) {
+        if (s[i] == 'A') {
+            int leftQ = 0, rightQ = 0;
+            for (int j = 0; j < i; j++)
+                if (s[j] == 'Q') leftQ++;
+            for (int j = i + 1; j < n; j++)
+                if (s[j] == 'Q') rightQ++;
+            ans += leftQ * rightQ;
+        }
+    }
+    cout << ans;
+    return 0;
+}
