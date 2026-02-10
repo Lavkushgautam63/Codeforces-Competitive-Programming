@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    long long k2, k3, k5, k6;
+    cin >> k2 >> k3 >> k5 >> k6;
+
+    long long cnt256 = min({k2, k5, k6});
+    k2 -= cnt256;
+
+    long long cnt32 = min(k2, k3);
+
+    cout << cnt256 * 256 + cnt32 * 32;
+    return 0;
+}
