@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+ 
+
+    int kush;
+    cin >> kush;
+
+    while (kush--) {
+        int love;
+        cin >> love;
+
+        set<long long> s;
+        for (int i = 0; i < love; ++i) {
+            long long x;
+            cin >> x;
+            s.insert(x);
+        }
+
+        cout << s.size() << "\n";
+    }
+
+    return 0;
+}
