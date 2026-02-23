@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int testCases;
+    cin >> testCases;
+
+    while (testCases--) {
+        long long love;
+        cin >> love;
+
+        long long totalSpent = 0;
+
+        while (love >= 10) {
+            totalSpent += (love / 10) * 10;
+            love = (love / 10) + (love % 10);
+        }
+
+        totalSpent += love;
+
+        cout << totalSpent << "\n";
+    }
+
+    return 0;
+}
