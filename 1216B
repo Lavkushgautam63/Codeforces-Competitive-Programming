@@ -1,0 +1,36 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<pair<int,int>> v;
+
+    for(int i = 0; i < n; i++) {
+        int x;
+        cin >> x;
+        v.push_back({x, i+1});
+    }
+
+    sort(v.begin(), v.end(), greater<pair<int,int>>());
+
+    long long totalShots = 0;
+    int x = 0;
+
+    vector<int> order;
+
+    for(auto &it : v) {
+        totalShots += (long long)it.first * x + 1;
+        order.push_back(it.second);
+        x++;
+    }
+
+    cout << totalShots << endl;
+
+    for(int i : order) {
+        cout << i << " ";
+    }
+
+    return 0;
+}
