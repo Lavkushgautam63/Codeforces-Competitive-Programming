@@ -1,0 +1,19 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+long long f(long long x) {
+    long long even = x / 2;
+    long long odd = (x + 1) / 2;
+    return even * (even + 1) - odd * odd;
+}
+
+int main() {
+    int q;
+    cin >> q;
+    while(q--) {
+        long long l, r;
+        cin >> l >> r;
+        cout << f(r) - f(l - 1) << endl;
+    }
+    return 0;
+}
