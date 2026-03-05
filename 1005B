@@ -1,0 +1,22 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string s, t;
+    cin >> s >> t;
+
+    int i = s.size() - 1;
+    int j = t.size() - 1;
+
+    int common = 0;
+
+    while (i >= 0 && j >= 0 && s[i] == t[j]) {
+        common++;
+        i--;
+        j--;
+    }
+
+    int moves = (s.size() - common) + (t.size() - common);
+
+    cout << moves << endl;
+}
