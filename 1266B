@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+
+    while(t--){
+        long long x;
+        cin >> x;
+
+        long long r = x % 14;
+
+        if(x >= 15 && r >= 1 && r <= 6) 
+            cout << "YES\n";
+        else 
+            cout << "NO\n";
+    }
+
+    return 0;
+}
