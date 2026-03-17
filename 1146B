@@ -1,0 +1,29 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    string t;
+    cin >> t;
+
+    int cnt = 0;
+    for (char c : t) if (c != 'a') cnt++;
+
+    if (cnt % 2) {
+        cout << ":(";
+        return 0;
+    }
+
+    int k = cnt / 2;
+    int n = t.size();
+
+    string suffix = t.substr(n - k);
+    string s = t.substr(0, n - k);
+
+    string temp = "";
+    for (char c : s) if (c != 'a') temp += c;
+
+    if (temp == suffix) cout << s;
+    else cout << ":(";
+
+    return 0;
+}
