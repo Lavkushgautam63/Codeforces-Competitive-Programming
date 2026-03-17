@@ -1,0 +1,34 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+
+    int Raj;
+    cin >> Raj;
+
+    while(Raj--) {
+        int priya;   
+        cin >> priya;
+
+        vector<int> radhika(priya); 
+
+        for(int i = 0; i < priya; i++) {
+            cin >> radhika[i];
+        }
+
+        int badDays = 0;
+        int min_price = radhika[priya - 1];
+
+        for(int i = priya - 2; i >= 0; i--) {
+            if(radhika[i] > min_price) {
+                badDays++;
+            } else {
+                min_price = radhika[i];
+            }
+        }
+
+        cout << badDays << "\n";
+    }
+
+    return 0;
+}
