@@ -1,0 +1,45 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int priya;
+    cin >> priya;
+
+    while (priya--) {
+        int radhika;
+        cin >> radhika;
+
+        vector<int> palak(radhika), anjali(radhika);
+
+        for (int i = 0; i < radhika; i++) cin >> palak[i];
+        for (int i = 0; i < radhika; i++) cin >> anjali[i];
+
+        bool ladka = false, ladki = false;
+        bool possible = true;
+
+        for (int i = 0; i < radhika; i++) {
+
+            if (anjali[i] > palak[i]) {
+                if (!ladka) {
+                    possible = false;
+                    break;
+                }
+            }
+
+            if (anjali[i] < palak[i]) {
+                if (!ladki) {
+                    possible = false;
+                    break;
+                }
+            }
+
+            if (palak[i] == 1) ladka = true;
+            if (palak[i] == -1) ladki = true;
+        }
+
+        if (possible) cout << "YES\n";
+        else cout << "NO\n";
+    }
+
+    return 0;
+}
