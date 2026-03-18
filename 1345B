@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+long long cards(long long h) {
+    return (h * (3 * h + 1)) / 2;
+}
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        long long n;
+        cin >> n;
+
+        int count = 0;
+
+        while (n >= 2) {
+            long long left = 1, right = 1e5, h = 0;
+
+            // binary search for max h
+            while (left <= right) {
+                long long mid = (left + right) / 2;
+                if (cards(mid) <= n) {
+                    h = mid;
+                    left = mid + 1;
+                } else {
+                    right = mid - 1;
+                }
+            }
+
+            if (h == 0) break;
+
+            n -= cards(h);
+            count++;
+        }
+
+        cout << count << endl;
+    }
+
+    return 0;
+}
