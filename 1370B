@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int test;
+    cin >> test;
+
+    while (test--) {
+        int size;
+        cin >> size;
+
+        vector<int> arr(2 * size);
+        vector<int> odd_idx, even_idx;
+
+        for (int i = 0; i < 2 * size; i++) {
+            cin >> arr[i];
+            if (arr[i] % 2 == 0)
+                even_idx.push_back(i + 1);
+            else
+                odd_idx.push_back(i + 1);
+        }
+
+        vector<pair<int, int>> result;
+
+        for (int i = 0; i + 1 < odd_idx.size(); i += 2) {
+            result.push_back({odd_idx[i], odd_idx[i + 1]});
+        }
+
+        for (int i = 0; i + 1 < even_idx.size(); i += 2) {
+            result.push_back({even_idx[i], even_idx[i + 1]});
+        }
+
+        for (int i = 0; i < size - 1; i++) {
+            cout << result[i].first << " " << result[i].second << "\n";
+        }
+    }
+
+    return 0;
+}
