@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+vector<int> toTernary(long long x) {
+    vector<int> v;
+    if (x == 0) v.push_back(0);
+    while (x > 0) {
+        v.push_back(x % 3);
+        x /= 3;
+    }
+    return v;
+}
+
+long long toDecimal(vector<int> &v) {
+    long long res = 0, power = 1;
+    for (int i = 0; i < v.size(); i++) {
+        res += v[i] * power;
+        power *= 3;
+    }
+    return res;
+}
+
+int main() {
+    long long a, c;
+    cin >> a >> c;
+
+    vector<int> A = toTernary(a);
+    vector<int> C = toTernary(c);
+
+    int n = max(A.size(), C.size());
+    A.resize(n, 0);
+    C.resize(n, 0);
+
+    vector<int> B(n);
+
+    for (int i = 0; i < n; i++) {
+        B[i] = (C[i] - A[i] + 3) % 3;
+    }
+
+    cout << toDecimal(B) << endl;
+
+    return 0;
+}
