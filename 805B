@@ -1,0 +1,17 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int priya;
+    cin >> priya;
+
+    string sona = "aabb";
+    string rani = "";
+
+    for (int kajal = 0; kajal < priya; kajal++) {
+        rani += sona[kajal % 4];
+    }
+
+    cout << rani;
+    return 0;
+}
