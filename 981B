@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    unordered_map<long long, long long> girls;
+    long long ans = 0;
+
+    for (int i = 0; i < n; i++) {
+        long long a, x;
+        cin >> a >> x;
+        girls[a] = x;
+    }
+
+    int m;
+    cin >> m;
+
+    for (int i = 0; i < m; i++) {
+        long long b, y;
+        cin >> b >> y;
+
+        if (girls.count(b)) {
+            ans += max(girls[b], y);
+            girls.erase(b);
+        } else {
+            ans += y;
+        }
+    }
+
+    for (auto &it : girls) {
+        ans += it.second;
+    }
+
+    cout << ans;
+    return 0;
+}
