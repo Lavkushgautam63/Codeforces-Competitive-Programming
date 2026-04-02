@@ -1,0 +1,21 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+
+    int priya[10] = {6,2,5,5,4,5,6,3,7,6};
+
+    long long sakshi = 0;
+
+    for(int ritu = a; ritu <= b; ritu++) {
+        int neha = ritu;
+        while(neha > 0) {
+            sakshi += priya[neha % 10];
+            neha /= 10;
+        }
+    }
+
+    cout << sakshi;
+}
