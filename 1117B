@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    long long n, m, k;
+    cin >> n >> m >> k;
+
+    vector<long long> neha(n);
+    for (auto &sakshi : neha) cin >> sakshi;
+
+    sort(neha.begin(), neha.end());
+
+    long long priya = neha[n - 1];
+    long long riya = neha[n - 2];
+
+    long long block = m / (k + 1);
+    long long extra = m % (k + 1);
+
+    long long useMax = block * k + extra;
+    long long useSecond = block;
+
+    long long answer = useMax * priya + useSecond * riya;
+
+    cout << answer;
+}
