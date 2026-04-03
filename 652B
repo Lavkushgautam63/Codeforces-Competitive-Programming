@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<int> priya(n);
+    for(int i = 0; i < n; i++) cin >> priya[i];
+
+    sort(priya.begin(), priya.end());
+
+    vector<int> simran(n);
+
+    int left = 0, right = n - 1;
+
+    for(int i = 0; i < n; i++) {
+        if(i % 2 == 0) {
+            simran[i] = priya[left++];
+        } else {
+            simran[i] = priya[right--];
+        }
+    }
+
+    for(int i = 0; i < n; i++) {
+        cout << simran[i] << " ";
+    }
+}
