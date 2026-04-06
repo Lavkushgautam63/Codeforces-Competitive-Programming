@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Laptop {
+    int speed, ram, hdd, cost, index;
+};
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<Laptop> v(n);
+
+    for (int i = 0; i < n; i++) {
+        cin >> v[i].speed >> v[i].ram >> v[i].hdd >> v[i].cost;
+        v[i].index = i + 1;
+    }
+
+    int bestIndex = -1;
+    int minCost = INT_MAX;
+
+    for (int i = 0; i < n; i++) {
+        bool outdated = false;
+
+        for (int j = 0; j < n; j++) {
+            if (i == j) continue;
+
+            if (v[j].speed > v[i].speed &&
+                v[j].ram > v[i].ram &&
+                v[j].hdd > v[i].hdd) {
+                outdated = true;
+                break;
+            }
+        }
+
+        if (!outdated) {
+            if (v[i].cost < minCost) {
+                minCost = v[i].cost;
+                bestIndex = v[i].index;
+            }
+        }
+    }
+
+    cout << bestIndex << endl;
+
+    return 0;
+}
