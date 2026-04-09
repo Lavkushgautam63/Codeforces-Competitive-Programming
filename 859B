@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    int ans = 1e9;
+
+    for (int a = 1; a * a <= n; a++) {
+        int b = (n + a - 1) / a;
+        ans = min(ans, 2 * (a + b));
+    }
+
+    cout << ans << endl;
+
+    return 0;
+}
