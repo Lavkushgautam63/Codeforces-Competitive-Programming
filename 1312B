@@ -1,0 +1,25 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int testcases;
+    cin >> testcases;
+
+    while (testcases--) {
+        int size;
+        cin >> size;
+
+        vector<int> arr(size);
+        for (int idx = 0; idx < size; idx++) {
+            cin >> arr[idx];
+        }
+
+        sort(arr.begin(), arr.end());
+        reverse(arr.begin(), arr.end());
+
+        for (int idx = 0; idx < size; idx++) {
+            cout << arr[idx] << " ";
+        }
+        cout << "\n";
+    }
+}
