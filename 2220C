@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+void solve() {
+    long long priya, ananya;
+    cin>>priya>>ananya;
+
+    long long sakshi=priya+2LL*ananya;
+    long long kavya=2LL*sakshi+1;
+
+    long long sneha=-1,riya=-1;
+
+    for (long long shreya = 3; shreya * shreya <= kavya; shreya += 2) {
+        if (kavya % shreya == 0) {
+            long long diya = kavya / shreya;
+
+            long long nisha = (shreya-1)/2;
+            long long ishita=(diya-1)/2;
+
+            if (ananya<=nisha*(ishita+1)){
+                sneha = nisha;
+                riya = ishita;
+                break;
+            }
+        }
+    }
+
+    if (sneha != -1) {
+        cout<<sneha<<" "<<riya<<endl;
+    } else {
+        cout <<-1<<endl;
+    }
+}
+
+int main() {
+    int ram;
+    cin >> ram;
+
+    while (ram--) {
+        solve();
+    }
+
+    return 0;
+}
